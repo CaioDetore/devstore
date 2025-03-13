@@ -14,3 +14,4 @@ pnpm dev
 bun dev
 ```
 
+project figma: https://www.figma.com/design/5S9rV8CrLsk9bwIsUSO0xF/devstore-%E2%80%A2-Projeto-React-(Community)?node-id=0-1&t=TFrOjuvXiXjRRksD-1
