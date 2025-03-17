@@ -3,8 +3,6 @@ import { Product } from '@/app/data/types/product'
 import { env } from '@/env'
 import { ImageResponse } from 'next/og'
 
-import colors from 'tailwindcss/colors'
-
 // Image metadata
 export const alt = 'About Acme'
 export const size = {
