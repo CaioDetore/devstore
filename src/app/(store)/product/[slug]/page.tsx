@@ -1,5 +1,6 @@
 import { api } from '@/app/data/api'
 import { Product } from '@/app/data/types/product'
+import { Metadata } from 'next'
 import Image from 'next/image'
 
 interface ProductProps {
@@ -8,7 +9,7 @@ interface ProductProps {
   }
 }
 
-async function getdProduct(slug: string): Promise<Product> {
+async function getProduct(slug: string): Promise<Product> {
   const response = await api(`/products/${slug}`, {
     next: {
       revalidate: 60 * 60, // 1 hora
@@ -20,8 +21,18 @@ async function getdProduct(slug: string): Promise<Product> {
   return product
 }
 
+export async function generateMetadata({
+  params,
+}: ProductProps): Promise<Metadata> {
+  const product = await getProduct(params.slug)
+
+  return {
+    title: product.title,
+  }
+}
+
 export default async function ProductPage({ params }: ProductProps) {
-  const product = await getdProduct(params.slug)
+  const product = await getProduct(params.slug)
 
   return (
     <div className="realtive grid max-h-[860px] grid-cols-3">

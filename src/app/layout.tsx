@@ -8,7 +8,10 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Devstore',
+  title: {
+    template: '%s | Devstore',
+    default: 'devstore',
+  },
   description: 'Clothes store for devs.',
 }
 
